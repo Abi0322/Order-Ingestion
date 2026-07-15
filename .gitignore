@@ -3,8 +3,8 @@ app/.streamlit/secrets.toml
 app/credentials.json
 app/token.json
 app/orders.db
-app/orders_erp_export.json
-app/orders_erp_export.csv
+app/orders_erp_export*.json
+app/orders_erp_export*.csv
 __pycache__/
 *.pyc
 venv/

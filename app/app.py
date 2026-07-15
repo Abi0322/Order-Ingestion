@@ -771,11 +771,29 @@ learned = storage.list_learned_products()
 with st.expander(f"🧠 Learned corrections ({len(learned)})"):
     if learned:
         st.caption("Product mappings the pipeline learned from your corrections.")
-        st.table(
-            [
-                {"Raw text": l["raw_text_key"], "Maps to": l["canonical_product"], "Times corrected": l["correction_count"]}
-                for l in learned
-            ]
+        # A hand-built table instead of st.table()/st.dataframe(): those
+        # route through a pandas -> pyarrow conversion internally, which
+        # segfaults the whole Streamlit process on some pyarrow/numpy/macOS
+        # combinations (confirmed via a real crash report — EXC_BAD_ACCESS
+        # inside pyarrow's Table.from_pandas). This tiny 3-column list
+        # doesn't need a DataFrame at all.
+        cell = 'style="padding:7px 10px 7px 0; border-top:1px solid rgba(255,255,255,0.08);"'
+        rows = "".join(
+            f"<tr><td {cell}>{html.escape(l['raw_text_key'])}</td>"
+            f"<td {cell}>{html.escape(l['canonical_product'])}</td>"
+            f"<td {cell}>{l['correction_count']}</td></tr>"
+            for l in learned
+        )
+        st.markdown(
+            '<table style="width:100%; border-collapse:collapse; '
+            'font-family:-apple-system,system-ui,\'Segoe UI\',sans-serif; font-size:13.5px;">'
+            '<thead><tr style="color:#898781; text-align:left;">'
+            '<th style="padding:6px 10px 6px 0; font-weight:600;">Raw text</th>'
+            '<th style="padding:6px 10px 6px 0; font-weight:600;">Maps to</th>'
+            '<th style="padding:6px 0; font-weight:600;">Times corrected</th>'
+            "</tr></thead>"
+            f'<tbody style="color:#ffffff;">{rows}</tbody></table>',
+            unsafe_allow_html=True,
         )
     else:
         _render_empty_state(
