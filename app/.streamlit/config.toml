@@ -1,0 +1,19 @@
+[theme]
+# Fixed dark theme — matches the app's custom CSS (urgency pills, stat
+# tiles, feedback banners, empty states) exactly, so Streamlit's own chrome
+# (sidebar, page background, widget backgrounds) never drifts out of sync
+# with them. Previously this only set primaryColor with a light base, which
+# forced the page/sidebar to white while the custom components followed the
+# browser's separate prefers-color-scheme setting — the two didn't agree.
+base = "dark"
+primaryColor = "#3987e5"
+backgroundColor = "#0d0d0d"
+secondaryBackgroundColor = "#1a1a19"
+textColor = "#ffffff"
+font = "sans serif"
+
+[client]
+# "minimal" drops Streamlit's own Deploy button / hamburger menu chrome —
+# that's Streamlit Cloud tooling, not part of this app, and looks out of
+# place in a screenshot of a finished product.
+toolbarMode = "minimal"
