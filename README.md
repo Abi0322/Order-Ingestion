@@ -171,4 +171,6 @@ requirements.txt
 
 ---
 
-A short demo video will be added separately.
+## Demo video
+
+[Watch a short walkthrough](order-ingestion-demo.mp4)
