@@ -7,6 +7,8 @@ ERP-ready format. Built for the messy, real-world case: a customer types
 the other end needs that to become a line-itemed purchase order, fast, without
 silently guessing at the parts it isn't sure about.
 
+<video src="https://github.com/Abi0322/Order-Ingestion/raw/main/order-ingestion-demo.mp4" controls muted width="100%"></video>
+
 ## Try it in 60 seconds
 
 No API keys required for the basic demo path — regex extraction and fuzzy
@@ -168,9 +170,3 @@ requirements.txt
   minute, ~20/day at time of writing) — heavy Gmail-fetch or clarification
   usage without a paid key will start failing closed (skipping rather than
   guessing) once quota's exhausted.
-
----
-
-## Demo video
-
-[Watch a short walkthrough](order-ingestion-demo.mp4)
