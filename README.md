@@ -7,7 +7,7 @@ ERP-ready format. Built for the messy, real-world case: a customer types
 the other end needs that to become a line-itemed purchase order, fast, without
 silently guessing at the parts it isn't sure about.
 
-<video src="https://github.com/Abi0322/Order-Ingestion/raw/main/order-ingestion-demo.mp4" controls muted width="100%"></video>
+**[▶ Watch the 2-minute demo](order-ingestion-demo.mp4)**
 
 ## Try it in 60 seconds
 
